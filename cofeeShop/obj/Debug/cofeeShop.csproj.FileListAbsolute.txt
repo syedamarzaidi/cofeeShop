@@ -1,0 +1,6 @@
+c:\users\kali\documents\visual studio 2015\Projects\cofeeShop\cofeeShop\bin\Debug\cofeeShop.exe.config
+c:\users\kali\documents\visual studio 2015\Projects\cofeeShop\cofeeShop\bin\Debug\cofeeShop.exe
+c:\users\kali\documents\visual studio 2015\Projects\cofeeShop\cofeeShop\bin\Debug\cofeeShop.pdb
+c:\users\kali\documents\visual studio 2015\Projects\cofeeShop\cofeeShop\obj\Debug\cofeeShop.exe
+c:\users\kali\documents\visual studio 2015\Projects\cofeeShop\cofeeShop\obj\Debug\cofeeShop.pdb
+c:\users\kali\documents\visual studio 2015\Projects\cofeeShop\cofeeShop\obj\Debug\cofeeShop.csprojResolveAssemblyReference.cache
