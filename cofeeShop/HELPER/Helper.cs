@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using cofeeShop.BL;
+using cofeeShop.DL;
 
 namespace cofeeShop.HELPER
 {
@@ -11,14 +11,20 @@ namespace cofeeShop.HELPER
     {
         public bool isItemExist(string name)
         {
-            foreach (var item in CofeeShop.menu)
+            foreach (var item in CofeeShopDL.getMenu())
             {
-                if (name == item.name)
+                if (name == item.getItemName())
                 {
                     return true;
                 }
             }
             return false;
+        }
+        public static void tempStop()
+        {
+            Console.WriteLine("Press any key to continue............");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }

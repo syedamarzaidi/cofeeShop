@@ -13,15 +13,17 @@ namespace cofeeShop
     {
         static void Main(string[] args)
         {
-            bool programRunning = true;
+            string path = "C:\\Users\\kali\\Documents\\Visual Studio 2015\\Projects\\cofeeShop\\cofeeShop\\files\\menu.txt";
+            CofeeShopDL.LoadMenu(path);
             string option = ""; //option variable to store menu item option
-            while (programRunning)
+            while (option != "9")
             {
                 option = CofeeShopUI.Menu();
                 if (option == "1")
                 {
                     MenuItem m = CofeeShopUI.takeInputForMenu();
                     CofeeShopDL.addMenuItem(m);
+                    CofeeShopDL.saveMenu(path, true);
                 }
                 else if (option == "2")
                 {
@@ -58,6 +60,7 @@ namespace cofeeShop
                 {
                     int amount = CofeeShop.calculatePayableAmount();
                     CofeeShopUI.showPayableAmount(amount);
+                    CofeeShopDL.clearAllOrders();
                 }
             }
         }

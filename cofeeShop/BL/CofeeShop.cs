@@ -12,16 +12,17 @@ namespace cofeeShop.BL
         public CofeeShop(string name, List<MenuItem> menu, List<string> orders)
         {
             this.name = name;
-            CofeeShop.menu = menu;
-            CofeeShop.orders = orders;
+            CofeeShopDL.setMenu(menu);
+            CofeeShopDL.setOrders(orders);
         }
-        public string name;
-        public static List<MenuItem> menu = new List<MenuItem>();
-        public static List<string> orders = new List<string>();
+        private string name;
         public static void showCheapestItem()
         {
             string cheapestOrder = CofeeShopDL.getCheapestOrder();
-            CofeeShopUI.printCheapestItem(cheapestOrder);
+            if (cheapestOrder != null)
+            {
+                CofeeShopUI.printCheapestItem(cheapestOrder);
+            }
         }
         public static bool addOrder()
         {
@@ -36,8 +37,8 @@ namespace cofeeShop.BL
         {
             if (!CofeeShopDL.isOrderListEmpty())
             {
-                CofeeShopUI.showItemReadyStatus(true, orders[0]);
-                CofeeShopDL.removeFirstOrderItem();
+                CofeeShopUI.showItemReadyStatus(true, CofeeShopDL.getOrders()[0]);
+                //CofeeShopDL.removeFirstOrderItem();
             }
             else
             {
@@ -46,9 +47,9 @@ namespace cofeeShop.BL
         }
         public static bool isItemAvailable(string itemName)
         {
-            foreach (var it in CofeeShop.menu)
+            foreach (var it in CofeeShopDL.getMenu())
             {
-                if (itemName == it.name)
+                if (itemName == it.getItemName())
                 {
                     return true;
                 }
@@ -60,13 +61,13 @@ namespace cofeeShop.BL
             int amount = 0;
             if (!CofeeShopDL.isOrderListEmpty())
             {
-                foreach (var s in CofeeShop.orders)
+                foreach (var s in CofeeShopDL.getOrders())
                 {
-                    foreach(var m in menu)
+                    foreach(var m in CofeeShopDL.getMenu())
                     {
-                        if(s == m.name)
+                        if(s == m.getItemName())
                         {
-                            amount = amount + m.price;
+                            amount = amount + m.getItemPrice();
                         }
                     }
                 }

@@ -69,7 +69,7 @@ namespace cofeeShop.UI
             Console.WriteLine("Name\t\tPrice");
             foreach (var s in m)
             {
-                Console.WriteLine("{0}\t\t{1}", s.name, s.price);
+                Console.WriteLine("{0}\t\t{1}", s.getItemName(), s.getItemPrice());
             }
         }
         public static void showOrdersList()
@@ -77,7 +77,7 @@ namespace cofeeShop.UI
             if (!CofeeShopDL.isOrderListEmpty())
             {
                 Console.WriteLine("name\t\tprice");
-                foreach (string ord in CofeeShop.orders)
+                foreach (string ord in CofeeShopDL.getOrders())
                 {
                     Console.WriteLine("{0}", ord);
                 }
